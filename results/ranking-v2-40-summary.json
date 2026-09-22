@@ -1,0 +1,16 @@
+{
+  "dataset": "ranking-v2-40",
+  "ranking_version": "v2.1-word-boundary",
+  "total": 40,
+  "tp": 25,
+  "tn": 15,
+  "fp": 0,
+  "fn": 0,
+  "accuracy": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "source": "n8n sandbox execution",
+  "verified_at": "2026-09-22T15:02:19.497Z"
+}
+
