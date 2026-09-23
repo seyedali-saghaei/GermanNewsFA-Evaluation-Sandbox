@@ -68,6 +68,14 @@ EVAL 00 - Ranking Test Trigger
 
 The sandbox workflow remains inactive. All external send nodes must stay disabled.
 
+## Independent v2.3.1 headline test
+
+The fourth frozen set contains 50 previously unused NDR and rbb24 headlines. The
+frozen v2.3.1 rules achieved 94.12% precision but only 42.11% recall. This is a
+headline-only stress test and demonstrates that v2.3.1 does not generalize well
+enough to merge as a production-ready release. See
+`docs/v2.3.1-unseen4-headline-report.md` for the method and error analysis.
+
 ## Run locally
 
 ```bash
