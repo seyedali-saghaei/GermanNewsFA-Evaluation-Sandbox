@@ -25,7 +25,27 @@ n8n/eval-b-deterministic-pre-ranking.js Rule-based pre-ranker
 n8n/eval-c-ranking-metrics.js           Metrics node
 python/evaluate_ranking.py               Independent local evaluator
 results/ranking-v2-40-summary.json       Verified result
+data/real-news-holdout-50-spiegel-tagesschau.csv  Real-news validation set
+data/real-news-unseen-50-faz-dw.csv      Independent unseen test set
+n8n/pre-ranking-v2.2-topic-penalties.js  v2.2 pre-ranker
+results/holdout-v2.2-summary.json         v2.2 validation result
+results/unseen-faz-dw-v2.2-summary.json   Frozen unseen-test result
+docs/v2.2-evaluation-report.md            Evaluation interpretation
 ```
+
+## Real-news evaluation
+
+| Version and dataset | Accuracy | Precision | Recall | F1 | FP | FN |
+|---|---:|---:|---:|---:|---:|---:|
+| v2.1, Spiegel/Tagesschau validation | 76% | 75.5% | 100% | 86.0% | 12 | 0 |
+| v2.2, Spiegel/Tagesschau validation | 100% | 100% | 100% | 100% | 0 | 0 |
+| v2.2, unseen FAZ/DW test | 60% | 81.1% | 69.8% | 75.0% | 7 | 13 |
+
+The unseen result shows that v2.2 is overfitted. It remains an evaluation
+baseline, not a production release. Version 2.3 will introduce source
+normalization, title weighting, topic evidence, and separate relevance and
+importance scoring. A third unseen dataset will remain untouched until v2.3 is
+frozen.
 
 ## n8n evaluation branch
 
