@@ -27,10 +27,17 @@ python/evaluate_ranking.py               Independent local evaluator
 results/ranking-v2-40-summary.json       Verified result
 data/real-news-holdout-50-spiegel-tagesschau.csv  Real-news validation set
 data/real-news-unseen-50-faz-dw.csv      Independent unseen test set
+data/real-news-unseen-3-50-sz-zeit-dlf.json  Third frozen unseen set
 n8n/pre-ranking-v2.2-topic-penalties.js  v2.2 pre-ranker
+n8n/eval-unseen-sz-zeit-dlf-v2.3.js      Frozen v2.3 unseen evaluator
+n8n/pre-ranking-v2.3.1.js                Improved structured pre-ranker
+n8n/eval-unseen-sz-zeit-dlf-v2.3.1.js    v2.3.1 tuning evaluator
 results/holdout-v2.2-summary.json         v2.2 validation result
 results/unseen-faz-dw-v2.2-summary.json   Frozen unseen-test result
+results/unseen3-sz-zeit-dlf-v2.3-summary.json  Frozen v2.3 unseen result
+results/unseen3-sz-zeit-dlf-v2.3.1-tuning-summary.json  v2.3.1 tuning result
 docs/v2.2-evaluation-report.md            Evaluation interpretation
+docs/v2.3-evaluation-report.md            v2.3 and v2.3.1 interpretation
 ```
 
 ## Real-news evaluation
@@ -40,12 +47,15 @@ docs/v2.2-evaluation-report.md            Evaluation interpretation
 | v2.1, Spiegel/Tagesschau validation | 76% | 75.5% | 100% | 86.0% | 12 | 0 |
 | v2.2, Spiegel/Tagesschau validation | 100% | 100% | 100% | 100% | 0 | 0 |
 | v2.2, unseen FAZ/DW test | 60% | 81.1% | 69.8% | 75.0% | 7 | 13 |
+| v2.3, unseen SZ/ZEIT/DLF test | 88% | 97.1% | 87.2% | 91.9% | 1 | 5 |
+| v2.3.1, reused SZ/ZEIT/DLF tuning set | 98% | 100% | 97.4% | 98.7% | 0 | 1 |
 
-The unseen result shows that v2.2 is overfitted. It remains an evaluation
-baseline, not a production release. Version 2.3 will introduce source
-normalization, title weighting, topic evidence, and separate relevance and
-importance scoring. A third unseen dataset will remain untouched until v2.3 is
-frozen.
+The frozen third unseen test shows that v2.3 generalizes substantially better
+than v2.2. Version 2.3.1 fixes short-token substring collisions and expands
+coverage for public health, consumer affairs, and climate/disaster reporting.
+Its 98% result is a tuning result because the third dataset was reused after
+the v2.3 errors were inspected. It must not be reported as independent unseen
+performance. A fourth frozen dataset is required before release.
 
 ## n8n evaluation branch
 
